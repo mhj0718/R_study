@@ -11,6 +11,7 @@ str(love_vec)
 str(love_fun)
 
 
+
 # B는 A로부터 지정된 객체
 A = 1
 B = A
