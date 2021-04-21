@@ -277,3 +277,64 @@ complete.cases(ex_nadf)
 
 ex_nadf <- ex_nadf[complete.cases(ex_nadf),]     ## NA가 있는 행을 삭제한 데이터프레임 생성
 ex_nadf
+
+
+# iris 열 이름 조회
+colnames(iris)
+
+# iris 열 이름 수정 (벡터 연산 가능)
+colnames(iris)[3] <- '3rd column'
+
+colnames(iris) <- c('꽃받침길이', '꽃받침너비', '꽃잎길이', '꽃잎너비', '종류')   ## 열이름 길이와 수정할 벡터의 길이가 같아야함.
+head(iris)
+
+
+# ----------------------------------------------------
+# read.table 명령어로 클립보드에 있는 파일 불러오기 
+hotel_rooms <- read.table(file = 'clipboard',
+                          header = T,
+                          sep = '\t',                  ## tab키 기준으로 나눈다
+                          stringsAsFactors = F)
+str(hotel_rooms)
+
+# hotel_rooms의 자료형 변경
+hotel_rooms$type <- as.factor(hotel_rooms$type)
+hotel_rooms$room_number <- as.character(hotel_rooms$room_number)
+hotel_rooms$price <- as.numeric(hotel_rooms$price)
+str(hotel_rooms)
+
+# type별 price 평균값 구하기 (int도 값 계산은 가능)
+aggregate(price ~ type, hotel_rooms, mean)
+
+
+#-----------------------------------------------------
+# 데이터프레임 합치기
+id <- c('F1','F2','F3','F4')
+name <- c('김가인','박지성','고아라','이승철')
+age <- c(24,32,18,40)
+
+# ex_df_age 생성
+ex_df_age <- data.frame(id,name,age)
+ex_df_age
+
+# ex_df_score 생성
+id <- c('F2','F1','F4','F3')
+name <- c('박지성','김가인','이승철','고아라')
+score <- c(95,100,56,73)
+ex_df_score <- data.frame(id,name,score)
+ex_df_score
+
+# cbind() - 열 합치기(가로로 이어붙임 = 열기준 병합)
+cbind(ex_df_age, ex_df_score)
+
+# rbind() - 행 합치기(세로로 이어붙임 = 행기준 병합, 열이름과 개수가 같아야함)
+ex_row_add <- data.frame(id='F5',
+                         name='문호종',
+                         age=27,
+                         score=100)
+ex_row_add
+ex_rbind <- rbind(ex_df, ex_row_add)
+
+# merge() - 결헙의 기준이 되는 열벡터를 정해서 결합
+merge(ex_df_age, ex_df_score, by = c('id'))             ## 기준 열로 정하지 않은 같은 열이름은 name.x / name.y로 자동으로 구분함
+ex_df <- merge(ex_df_age, ex_df_score, by = c('id','name'))
