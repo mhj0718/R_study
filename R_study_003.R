@@ -52,7 +52,6 @@ str(iris)
 head(iris,3)    ## head에서부터 3개줄까지 보여줘 (기본은 6줄)
 tail(iris,3)    ## tail에서부터 3개줄까지 보여줘 (기본은 6줄)
 
-
 #-----------------------------
 summary(iris)    ## 평균과 중앙값이 비슷한 분포가 잘 분포되어있는 그래프이다.
                  ## summary <- min, max, mean, median(2Q), 1Q, 3Q
@@ -84,7 +83,7 @@ subset(iris, Sepal.Length ==7.2, c('Species','Sepal.Length'))
 subset(Sepal.Length ==7.2, iris, c('Species','Sepal.Length'))    ## 함수 내 입력 순서 바뀌면 실행x
 
 
-# 입력 변수명을 명시하고 호출하기 - 순서가 바뀌어도 출력이 됨됨
+# 입력 변수명을 명시하고 호출하기 - 순서가 바뀌어도 출력이 됨
 subset(subset = (Sepal.Length ==7.2), x = iris, select = c('Species','Sepal.Length'))
 
 
@@ -137,7 +136,7 @@ detach(longley)
 # 칼럼 두 개 추출 시 데이터 타입 확인 (데이터프레임 형태로 추출)
 str(longley[,c('GNP','Year')])             
 # 칼럼 한 개 추출 시 데이터 타입 확인 (벡터형태로 추출)
-str(longley[,c('GNP')])
+str(longley[,c('GNP')])    ## != str(longley[2])
 # drop 옵션 사용 시 데이터 타입 확인 (drop = FALSE로 데이터프레임 유지)
 str(longley[,c('GNP'), drop = FALSE]) 
 
@@ -250,7 +249,7 @@ ex_na
 
 sum(ex_na)   ## NA는 계산에는 포함이 된다 (NA를 무슨 값으로 정할지는 데이터분석가의 재량)
 
-# NA를 제외하고 계산하려면 별도 옵션을 지정해야 함 (na.rm = T)
+# NA를 제외하고 계산하려면 별도 옵션을 지정해야 함 (na.rm = T, rm = remove)
 sum(ex_na, na.rm = TRUE)
 
 # NULL을 포함하는 벡터 생성
