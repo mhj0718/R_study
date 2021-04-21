@@ -84,7 +84,7 @@ result_lapply
 class(result_lapply)
 
 
-# supply 함수를 통해 각 지역의 평균온도 산출
+# sapply 함수를 통해 각 지역의 평균온도 산출
 # mean은 평균값을 구하는 함수로 결과값이 1개임
 result_sapply = sapply(korea_temp, mean)
 result_sapply
@@ -175,7 +175,7 @@ my_fun6(10)
 #---------------------------------------------
 # 객체 조회/삭제/저장/불러오기
 ls()      ## 조회
-rm(list = ls())       ## 전체 객체 삭제 >> rm(list) 형태로 들어가야함
+rm(list = ls())       ## 전체 객체 삭제 >> rm(list) 형태로 들어가야함/ 1개 이상 삭제 시 리스트형태로 들어가야함.
 
 
 # 벡터 생성
