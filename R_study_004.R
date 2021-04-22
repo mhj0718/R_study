@@ -281,7 +281,8 @@ api_url
 install.packages(('XML'))
 library(XML)
 
-# Open API 호출 주소를 통해 XML을 불러와 parsexml에 담는다.
+# Open API 호출 주소를 통해 XML을 불러와 parsexml에 담는다.   
+# (파싱= 구문 분석, XML 문서를 읽고 해석하여 태그명, 속성명, 속성값 및 엘리먼트 내용을 분리해 주느 프로그램)
 parsedXml = xmlParse(api_url)
 parsedXml
 
