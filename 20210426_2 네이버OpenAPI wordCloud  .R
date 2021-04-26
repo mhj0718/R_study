@@ -65,6 +65,7 @@ library(xml2)
 resultdf = read_xml(result)
 resultdf
 
+#----------------------------------------------------
 
 # 문장 정제하기 (gsub 함수)
 gsub("ABC", "***", 'ABCabcABC')
@@ -124,6 +125,11 @@ refinedStr
 # 여러 공란은 한 개의 공란으로 변경
 refinedStr = gsub(" +", " ", refinedStr)
 refinedStr
+
+# 치트키 (한국어아닌 것 다 공란 만들기)
+refinedStr = gsub("[^가-힣]", " ", refinedStr)
+refinedStr 
+
 
 # ---------------------------------------------------------------------
 
