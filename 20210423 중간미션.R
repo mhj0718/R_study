@@ -7,6 +7,7 @@ head(cctv_seoul)
 
 
 
+
 # 2. 'population_in_seoul.csv' 파일을
 #     pop_seoul 데이터 프레임에 저장
 pop_csv <- read.table('population_in_Seoul.csv', header = T, sep =',')
@@ -19,10 +20,10 @@ head(pop_seoul)
 
 # 3. pop_Seoul에 '자치구','함계_계',
 #   '한국인_계','등록외국인_계',
-#   'x65세이상고령자' 만 남겨라
+#   'x65세이상고령자'만 남겨라
 head(pop_seoul)
 pop_seoul[ , c(-1,-3,-6,-9,-12)] <- NULL   
-head(pop_seoul)                                       ##  내 답안 
+head(pop_seoul)                                       ##  내 답안   
 
 pop_seoul = pop_seoul[ , c(1,3,6,9,12)]               ##  쌤 답안
 
